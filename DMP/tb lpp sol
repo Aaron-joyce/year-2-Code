@@ -1,0 +1,23 @@
+# Ex 4.16 lpp
+constraint_mat = matrix(c(1,2,3,1,1,0), byrow = TRUE, nrow=2)
+
+constraint_rhs = c(10,20)
+constraint_sign = c("<=", "<=")
+
+constraint_mat
+constraint_res
+constraint_sign
+
+objective = c(1,2,3)
+
+sol = lp("max", objective.in = objective, const.mat = constraint_mat, const.dir = constraint_sign, const.rhs = constraint_rhs)
+sol
+
+# Ex 4.18 lpp
+const_mat = matrix(c(1,2,1,3,0,2,1,0,4), byrow = TRUE, nrow=3)
+const_sign = c("<=","<=","<=")
+const_rhs = c(430,460,420)
+objv = c(3,2,5)
+
+sol = lp("max", objv, const.mat = const_mat, const.dir = const_sign, const.rhs = const_rhs)
+sol
