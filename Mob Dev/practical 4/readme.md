@@ -1,1 +1,1 @@
-to create a tab bar and snack bar and integrate into a single app
+to create two material app widgets and switch between them in flutter
