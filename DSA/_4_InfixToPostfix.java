@@ -26,7 +26,6 @@ public class _4_InfixToPostfix {
 			// checking if the character is closing bracket			
 			else if(c == ')') {
 				String s= stk.peek();
-				System.out.println(stk);
 
 				// checking if top most element is not '('
 				if(s!= "(") {
