@@ -6,7 +6,7 @@ public class _4_InfixToPostfix {
 
 	public static void main(String[] args) {
 //		convert infix to postfix
-		String infix = "(((a+b)-c)*(a/b))";
+		String infix = "((m*n)/((p+q)*(a-b)))";
 		System.out.println("postfix is:"+ infixToPostfix(infix));
 	}
 	
@@ -17,16 +17,27 @@ public class _4_InfixToPostfix {
 		
 		for(int i =0;i<in.length();i++) {
 			c = in.charAt(i);
-			if(c == '+'|| c == '-'|| c == '*'|| c == '/'|| c == '%'|| c == '(') {
+
+			// Checking if current character is an operator or opening bracket and adding to stack
+			if(c == '+'|| c == '-'|| c == '*'|| c=='^' || c == '/'|| c == '%'|| c == '(') {
 				stk.push(c+"");
 			}
+
+			// checking if the character is closing bracket			
 			else if(c == ')') {
 				String s= stk.peek();
+				System.out.println(stk);
+
+				// checking if top most element is not '('
 				if(s!= "(") {
 					postfix+=stk.pop();
 				}
+
+				// popping the top most opening bracket in stack				
 				stk.pop();
 			}
+
+			// adding variables and numbers in stack 
 			else {
 				postfix+=(c+"");
 			}
